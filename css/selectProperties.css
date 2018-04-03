@@ -1,0 +1,28 @@
+.heading {
+    font-size: 20px;
+}
+
+.resultTop {
+    border-radius: 25px 25px 0px 0px;
+    border-style: solid;
+    border-color: black;
+    padding: 10px
+}
+
+.resultInner {
+    border-left-style: solid;
+    border-left-color: black;
+    border-right-style: solid;
+    border-right-color: black;
+    padding: 10px;
+}
+
+.resultBottom {
+    border-radius: 0px 0px 25px 25px;
+    border-style: solid;
+    border-color: black;
+    padding: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 15px;
+}
