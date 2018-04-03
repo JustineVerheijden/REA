@@ -8,9 +8,18 @@
     </head>
     <body ng-app='REA'>
         <div class='row'>
-            <div ng-controller='ResultsController as resultsController' class='col-md-6'>
-            <div ng-repeat='result in resultsController.resultData'>{{result.price}}
-        </div>
+            <div ng-controller='ResultsController as resultsController' class='heading col-md-4 col-md-offset-1 text-center'>Results
+                <div ng-repeat='result in resultsController.resultData'>
+                    <div class='resultTop' ng-style="{'background-color':result.agency.brandingColors.primary}" >
+                        <img src={{result.agency.logo}} alt='logo'>
+                    </div>
+                    <div class='resultInner'>
+                        <img src={{result.mainImage}} alt='mainImage' class='img-responsive'>
+                    </div>
+                    <div class='resultBottom text-left'>
+                        {{result.price}}
+                    </div>
+                </div>
             </div>
             <div class='col-md-6'></div>
         </div>

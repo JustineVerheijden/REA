@@ -6,7 +6,7 @@
   "scripts": {
     "webdriver-update": "node node_modules/.bin/webdriver-manager update",
     "webdriver-start": "sudo webdriver-manager start",
-    "start": "browser-sync start --server --port 3001 --files=\"./*\" --index=\"Cats.html\"",
+    "start": "browser-sync start --server --port 3001 --files=\"./*\" --index=\"selectProperties.html\"",
     "start-tests": "npm-run-all -p -r webdriver-update webdriver-start",
     "test": "protractor protractorTests/conf.js"
   },
