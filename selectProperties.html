@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Select Properties</title>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+        <link rel='stylesheet' href='css/selectProperties.css'>        
+    </head>
+    <body ng-app='REA'>
+        <div class='row'>
+            <div ng-controller='ResultsController as resultsController' class='col-md-6'>
+            <div ng-repeat='result in resultsController.resultData'>{{result.price}}
+        </div>
+            </div>
+            <div class='col-md-6'></div>
+        </div>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.11/angular.min.js'></script>
+        <script src='js/app.js'></script>
+        <!--<script src='js/dataService.js'></script>-->
+        <!--<script src='js/constantService.js'></script>-->
+        <script src='js/results.js'></script>
+        <!--<script src='js/saved.js'></script>-->
+    </body>
+</html>
