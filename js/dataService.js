@@ -34,12 +34,13 @@
             return responseDataPromise;
         }
         function getSavedProperties(){
-            /*let responseDataPromise = getAllProperties.then(
-                function (responseData){
-                    return responseData.data.saved;
-                });
-            return responseDataPromise;*/
-            return null;
+            let responseDataPromise = getAllProperties().then(function(data){
+                return data.data.saved;
+            },
+            function (data){
+                throw new Error(data);
+            });
+            return responseDataPromise;
         }
     }    
 })();

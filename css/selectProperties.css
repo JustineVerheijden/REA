@@ -2,14 +2,14 @@
     font-size: 20px;
 }
 
-.resultTop {
+.propertyTop {
     border-radius: 25px 25px 0px 0px;
     border-style: solid;
     border-color: black;
     padding: 10px
 }
 
-.resultInner {
+.propertyInner {
     border-left-style: solid;
     border-left-color: black;
     border-right-style: solid;
@@ -17,7 +17,7 @@
     padding: 10px;
 }
 
-.resultBottom {
+.propertyBottom {
     border-radius: 0px 0px 25px 25px;
     border-style: solid;
     border-color: black;
