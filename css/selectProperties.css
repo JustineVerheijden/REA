@@ -26,3 +26,14 @@
     font-weight: bold;
     font-size: 15px;
 }
+
+.btnWrapper {
+    text-align: center;
+    position: relative;;
+}
+
+.addRemoveButton {
+    position: absolute;
+    bottom: -25px; /*your button position*/
+    right: 0px; /*your button position*/
+}
