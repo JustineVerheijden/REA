@@ -1,9 +1,15 @@
-<div class='propertyTop' ng-style="{'background-color':bkgColor}" >
-    <img class='agencyLogo' ng-src={{agencyLogo}} alt='logo'>
-</div>
-<div class='propertyInner'>
-    <img ng-src={{mainImage}} alt='mainImage' class='img-responsive'>
-</div>
-<div class='propertyBottom'>
-    {{price}}
+<div ng-mouseover='hoverIn()' ng-mouseleave='hoverOut()' id={{id}} >
+    <div class='propertyTop' ng-style="{'background-color':bkgColor}" >
+        <img class='agencyLogo' ng-src={{agencyLogo}} alt='logo'>
+    </div>
+    <div class='propertyInner'>
+        <img ng-src={{mainImage}} alt='mainImage' class='img-responsive'>
+    </div>
+    <div class='propertyBottom'>
+        <div class='btnWrapper'>
+            <div ng-show=showAddButtonToggle style='width:100%' class='addRemoveButton btn btn-success'>add property</div>
+            <div ng-show=showRemoveButtonToggle style='width:100%' class='addRemoveButton btn btn-danger'>remove property</div>
+        </div>
+        {{price}}
+    </div>
 </div>
