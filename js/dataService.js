@@ -7,11 +7,14 @@
     dataService.$inject = ['$q', '$http', 'constants'];
 
     function dataService($q, $http, constants){
+
         return {
             getAllProperties: getAllProperties,
             getResultsProperties: getResultsProperties,
-            getSavedProperties: getSavedProperties
+            getSavedProperties: getSavedProperties,
+            savedData: savedData
         };
+        var savedData; //needs to be a var to ensure if it does not already exist it's declaration is hoisted
 
         function getAllProperties() {
             return $http.get(constants.PROPERTIES_URL)
@@ -19,8 +22,10 @@
                 function(data){
                     return data;
                 },
-                function(data){
-                    return $q.reject('Error retrieving all properties. (HTTP status: ' + data.status + ')');
+                function(data){                    
+                    let reTest = new RegExp(constants.ERROR_DETAIL_TO_BE_REPLACED,'g');
+                    return $q.reject(constants.DATA_RETRIEVE_ERROR.replace(reTest,data.status));
+                    //Use the error defined in the constants service and update it to reflect the errored status
                 }
             );
         }
@@ -30,6 +35,7 @@
             },
             function (data){
                 throw new Error(data);
+                // Unsure of requirements regarding what to do if an error occurs retrieving results data, need to check with users
             });
             return responseDataPromise;
         }
@@ -39,6 +45,7 @@
             },
             function (data){
                 throw new Error(data);
+                // Unsure of requirements regarding what to do if an error occurs retrieving saved data, need to check with users
             });
             return responseDataPromise;
         }

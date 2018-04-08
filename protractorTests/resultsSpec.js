@@ -1,7 +1,7 @@
 "use strict"
 let MainPage = require ('./selectProperties.js');
 
-describe("First Property Display", function() {
+describe("Results Properties - First Property Display", function() {
     let mainPage = new MainPage();
     
     beforeEach(function(){
@@ -10,26 +10,26 @@ describe("First Property Display", function() {
 
     it("should display expected logo on first property", function() {
         browser.waitForAngular();
-        expect(element.all(by.repeater('result in resultsController.resultData')).get(0).element(by.css(".agencyLogo")).getAttribute('src')).toMatch(mainPage.firstImage);
+        expect(mainPage.resultsProperties.get(0).element(by.css(".agencyLogo")).getAttribute('src')).toMatch(mainPage.firstImage);
     });
 
     it("should display expected background color on first property", function() {
         browser.waitForAngular();
-        expect(element.all(by.repeater('result in resultsController.resultData')).get(0).element(by.css(".propertyTop")).getCssValue('background-color')).toEqual(mainPage.firstBackground);
+        expect(mainPage.resultsProperties.get(0).element(by.css(".propertyTop")).getCssValue('background-color')).toEqual(mainPage.firstBackground);
     });
 
     it("should display expected property image on first property", function() {
         browser.waitForAngular();
-        expect(element.all(by.repeater('result in resultsController.resultData')).get(0).element(by.css(".propertyInner img")).getAttribute('src')).toMatch(mainPage.firstMainImage);
+        expect(mainPage.resultsProperties.get(0).element(by.css(".propertyInner img")).getAttribute('src')).toMatch(mainPage.firstMainImage);
     });
 
     it("should display expected price on first property", function() {
         browser.waitForAngular();
-        expect(element.all(by.repeater('result in resultsController.resultData')).get(0).element(by.css(".propertyBottom")).getText()).toEqual(mainPage.firstPrice);
+        expect(mainPage.resultsProperties.get(0).element(by.css(".propertyBottom")).getText()).toEqual(mainPage.firstPrice);
     });
 });
 
-describe("Other Results Property Displays", function() {
+describe("Results Properties - Other Results Property Displays", function() {
     let mainPage = new MainPage();
     
     beforeEach(function(){
@@ -38,11 +38,11 @@ describe("Other Results Property Displays", function() {
 
     it("should display expected logo on second property", function() {
         browser.waitForAngular();
-        expect(element.all(by.repeater('result in resultsController.resultData')).get(1).element(by.css(".agencyLogo")).getAttribute('src')).toMatch(mainPage.secondLogo);
+        expect(mainPage.resultsProperties.get(1).element(by.css(".agencyLogo")).getAttribute('src')).toMatch(mainPage.secondLogo);
     });
 
     it("should display expected logo on second property", function() {
         browser.waitForAngular();
-        expect(element.all(by.repeater('result in resultsController.resultData')).get(1).element(by.css(".agencyLogo")).getAttribute('src')).toMatch(mainPage.thirdLogo);
+        expect(mainPage.resultsProperties.get(1).element(by.css(".agencyLogo")).getAttribute('src')).toMatch(mainPage.thirdLogo);
     });
 });

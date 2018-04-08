@@ -10,14 +10,12 @@
         <div class='row'>
             <div ng-controller='ResultsController as resultsController' class='heading col-md-4 col-md-offset-1 text-center'>Results
                 <div ng-repeat='result in resultsController.resultData' class='text-left'>
-                    <property bkg-color=result.agency.brandingColors.primary agency-logo=result.agency.logo
-                    main-image=result.mainImage price=result.price show-add-button='true' id=result.id></property>
+                    <property add-property='addSavedProperty(result)' property-data=result show-add-button='true' id=result.id></property>
                 </div>
             </div>
             <div ng-controller='SavedController as savedController' class='heading col-md-4 col-md-offset-2 text-center'>Saved
                 <div ng-repeat='save in savedController.saveData' class='text-left'>
-                    <property bkg-color=save.agency.brandingColors.primary agency-logo=save.agency.logo
-                    main-image=save.mainImage price=save.price show-remove-button='true' id=save.id></property>
+                    <property remove-property='removeSavedProperty(id)' property-data=save show-remove-button='true' id=save.id></property>
                 </div>
             </div>
         </div>
