@@ -4,12 +4,25 @@
 
     app.controller('SavedController', SavedController);
 
-    SavedController.$inject = ['dataService'];
+    SavedController.$inject = ['$scope','dataService'];
 
-    function SavedController(dataService){
+    function SavedController($scope, dataService){
         let vm = this;
         dataService.getSavedProperties().then(function(data){
-            vm.saveData = data;
+            // store Saved Data in data service to allow it to be used by other controllers etc
+            dataService.savedData = data; 
+            vm.saveData = dataService.savedData;
         });
+
+        //needed to ensure model is kept up to date with any changes that happen to the data service outside of this controller
+        vm.saveData = dataService.savedData;
+
+        $scope.removeSavedProperty = function(id){
+            dataService.savedData = dataService.savedData.filter(function(index){
+                //only keep properties that weren't passed in to this function
+                return index.id !== id;
+            })
+            vm.saveData = dataService.savedData;
+        }
     }
 })();

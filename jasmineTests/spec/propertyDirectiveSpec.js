@@ -1,5 +1,8 @@
 'use strict'
 describe('Property Directive', function() {
+    //the testing of the directive is not thorough as the directive is mainly a container for repeated HTML. 
+    //This test is mainly to prove that the directive is acting as it should not to test every single element is displayed. 
+    //Please refer to integration/protractor tests for element display checks.
     let $compile,$rootScope, $scope;
   
     beforeEach(module('REA'));
