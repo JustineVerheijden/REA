@@ -1,4 +1,4 @@
-(function(){
+(()=>{
     'use strict'
     let app = angular.module('REA');
 
@@ -8,11 +8,11 @@
 
     function ResultsController($scope, dataService, constants){
         let vm = this;
-        dataService.getResultsProperties().then(function(data){
+        dataService.getResultsProperties().then((data)=>{
             vm.resultData = data;
         });
 
-        $scope.addSavedProperty = function (propertyData){
+        $scope.addSavedProperty = (propertyData)=>{
             let propertyToBeSaved ={};
             Object.assign(propertyToBeSaved, propertyData);
             //create complete copy of the property to be altered and potentially added to the saved properties
@@ -22,14 +22,14 @@
             vm.processProperty(propertyToBeSaved);
         }
         
-        vm.propertyExistsInSaved = function (id){
-            let exists = dataService.savedData.filter(function(index){
+        vm.propertyExistsInSaved = (id)=>{
+            let exists = dataService.savedData.filter((index)=>{
                 return index.id == id;
             });
             return exists.length!==0;
         }
         
-        vm.processProperty = function (propertyToBeSaved) {
+        vm.processProperty = (propertyToBeSaved)=> {
             if (!vm.propertyExistsInSaved(propertyToBeSaved.id)){
                 //don't allow property to be displayed multiple times in the 'saved' column
                 dataService.savedData.push(propertyToBeSaved);

@@ -1,4 +1,4 @@
-(function(){
+(()=>{
     'use strict'
     let app = angular.module('REA')
 
@@ -18,17 +18,17 @@
                 removeSavedProperty: "&removeProperty", //method that exists on Saved Controller
                 addSavedProperty: "&addProperty" //method that exists on Results Controller
             },
-            link: function (scope) {
+            link: (scope)=> {
                 //Update the ID for each element with whether it is RESULT or SAVED property
                 scope.id = scope.showAddButton?constants.RESULT_INDICATOR+scope.id:scope.id;
                 scope.id = scope.showRemoveButton?constants.SAVED_INDICATOR+scope.id:scope.id;
 
-                scope.hoverIn = function(){
+                scope.hoverIn = ()=>{
                     //Only display relevant button when user hovers mouse over element
                     scope.showAddButtonToggle = scope.showAddButton?true:false;
                     scope.showRemoveButtonToggle = scope.showRemoveButton?true:false;
                 }
-                scope.hoverOut = function(){
+                scope.hoverOut = ()=>{
                     //Hide all buttons when user leaves element
                     scope.showAddButtonToggle = false;
                     scope.showRemoveButtonToggle = false;
