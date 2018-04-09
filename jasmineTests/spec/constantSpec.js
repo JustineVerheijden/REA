@@ -5,7 +5,7 @@ describe('Constants service', function() {
 		PROPERTIES_URL : './json/mock.json',
 		PROPERTY_EXISTS_ERROR: 'Error, property can only be added once',
 		ERROR_DETAIL_TO_BE_REPLACED: retrieveError,
-		DATA_RETRIEVE_ERROR: 'Error retrieving all properties. (HTTP status: '+retrieveError+')',
+		DATA_RETRIEVE_ERROR: `Error retrieving all properties. (HTTP status: ${retrieveError})`,
 		RESULT_INDICATOR: 'result',
         SAVED_INDICATOR: 'saved'
 	}

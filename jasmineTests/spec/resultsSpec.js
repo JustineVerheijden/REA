@@ -2,6 +2,7 @@
 describe('Results Controller', function(){
     let $rootScope, $scope, $q, dataService, $controller;
     let resultsValue={};    
+    let propertyExistsError = 'Error, property can only be added once';
 
     beforeEach(module('REA'));
     beforeEach(inject(function(_$rootScope_, _$q_, _dataService_, _$controller_){
@@ -56,7 +57,7 @@ describe('Results Controller', function(){
             $controller = $controller('ResultsController', {$scope:$scope, dataService:dataService});
             expect(function() {
                 $controller.processProperty(newData);
-            }).toThrowError('Error, property can only be added once'); 
+            }).toThrowError(propertyExistsError); 
             
         });
 
