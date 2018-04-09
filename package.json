@@ -8,8 +8,7 @@
     "webdriver-start": "sudo webdriver-manager start",
     "start": "browser-sync start --server --port 3001 --files=\"./*\" --index=\"selectProperties.html\"",
     "start-tests": "npm-run-all -p -r webdriver-update webdriver-start",
-    "test": "protractor protractorTests/conf.js",
-    "babel": "babel --presets env js/** -o build/propertyApp.js"
+    "test": "protractor protractorTests/conf.js"
   },
   "repository": {
     "type": "git",
@@ -29,9 +28,6 @@
   },
   "homepage": "https://github.com/JustineVerheijden/REA#readme",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
     "browser-sync": "^2.23.6",
     "jasmine-core": "^3.1.0",
     "npm-run-all": "^4.1.2",
