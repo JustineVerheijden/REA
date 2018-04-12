@@ -1,5 +1,5 @@
 # REA
-This has been coded in response to the REA code challenge - property selector sent to me by the REA Tech Talent team.
+This has been coded in response to the REA code challenge - property selector sent to me by the REA Tech Talent team for more information please refer to [REA_UI_developer_test.docx](REA_UI_developer_test.docx?raw=true).
 
 ### Getting Started
 
@@ -9,6 +9,7 @@ You'll need Node and git installed to begin.
 git clone https://github.com/JustineVerheijden/REA.git
 cd REA
 npm install
+npm run build
 npm start
 ```
 This will clone the repository, install its dependencies and run a dev web server (running on [http://localhost:3001](http://localhost:3001)).
