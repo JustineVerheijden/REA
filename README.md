@@ -1,5 +1,5 @@
 # REA
-This has been coded in response to the REA code challenge - property selector sent to me by the REA Tech Talent team for more information please refer to [REA_UI_developer_test.docx](REA_UI_developer_test.docx?raw=true).
+This has been coded in response to the REA code challenge - property selector sent to me by the REA Tech Talent team.
 
 ### Getting Started
 
