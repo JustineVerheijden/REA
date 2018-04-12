@@ -1,8 +1,8 @@
 import angular from 'angular';
 import dataService from './dataService';
 import ResultsController from './resultsController';
-import "../bootstrap/css/bootstrap.css";
-import '../css/selectProperties.css';
+import "../dist/bootstrap/css/bootstrap.css";
+import '../dist/css/selectProperties.css';
 
 var moduleName = 'REA';
 

@@ -5,7 +5,7 @@ dataService.$inject = ['$http', '$q'];
 dataService.service('dataService',dataServiceFunction);
 
 function dataServiceFunction($http, $q){
-    const PROPERTIES_URL = './json/mock.json';
+    const PROPERTIES_URL = './dist/json/mock.json';
     const RETRIEVE_ERROR = '##REA_DATA_RETRIEVE_ERROR##';
     const ERROR_DETAIL_TO_BE_REPLACED = RETRIEVE_ERROR;
     const DATA_RETRIEVE_ERROR = `Error retrieving all properties. (HTTP status: ${RETRIEVE_ERROR})`;
