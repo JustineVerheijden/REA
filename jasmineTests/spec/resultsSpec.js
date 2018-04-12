@@ -30,7 +30,7 @@ describe('Results Controller', function(){
         });
     });
 
-    describe('Update Saved Property', function(){
+    xdescribe('Update Saved Property', function(){
         it("should return true if property exists in the saved column (if it does, it can't be added again)", function(){
             dataService.savedData=[{id:1,name:'test'}, {id:2,name:'test2'}];
             $controller = $controller('ResultsController', {$scope:$scope, dataService:dataService});
