@@ -9,6 +9,7 @@ You'll need Node and git installed to begin.
 git clone https://github.com/JustineVerheijden/REA.git
 cd REA
 npm install
+npm run build
 npm start
 ```
 This will clone the repository, install its dependencies and run a dev web server (running on [http://localhost:3001](http://localhost:3001)).
