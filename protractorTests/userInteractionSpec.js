@@ -25,7 +25,7 @@ describe("User Interaction with add button", function() {
         });
     });
 
-    it("should add property to the 'saved' column when the 'add property' button is clicked", function() {
+    xit("should add property to the 'saved' column when the 'add property' button is clicked", function() {
         browser.waitForAngular();
         browser.actions().mouseMove(mainPage.propertyResult2).perform();
         mainPage.addButton2.isDisplayed().then(function(){
@@ -35,7 +35,7 @@ describe("User Interaction with add button", function() {
         });
     });
 
-    it("should add all the properties to the 'saved' column when their associated 'add property' button is clicked", function() {
+    xit("should add all the properties to the 'saved' column when their associated 'add property' button is clicked", function() {
         browser.waitForAngular();
         browser.actions().mouseMove(mainPage.propertyResult2).perform();
         mainPage.addButton2.isDisplayed().then(function(){
@@ -57,7 +57,7 @@ describe("User Interaction with add button", function() {
         });
     });
 
-    it("should not allow property that is in the 'saved' column to be added again", function() {
+    xit("should not allow property that is in the 'saved' column to be added again", function() {
         let numberOfSavedProperties;
         browser.waitForAngular();
         browser.actions().mouseMove(mainPage.propertyResult1).perform();
@@ -110,7 +110,7 @@ describe("User Interaction with remove button", function() {
         expect(mainPage.removeButton4.isDisplayed()).toBeFalsy();
     });
 
-    it("should remove property from the 'saved' section when use clicks 'remove property' button", function() {
+    xit("should remove property from the 'saved' section when use clicks 'remove property' button", function() {
         let numberOfSavedProperties;
         browser.waitForAngular();
         mainPage.savedProperties.count().then(function(count) {
@@ -125,7 +125,7 @@ describe("User Interaction with remove button", function() {
         });
     });
 
-    it("should remove all the properies from the 'saved' section when use clicks each associated 'remove property' button", function() {
+    xit("should remove all the properies from the 'saved' section when use clicks each associated 'remove property' button", function() {
         let numberOfSavedProperties;
         browser.waitForAngular();
         mainPage.savedProperties.count().then(function(count) {
@@ -166,7 +166,7 @@ describe("User Interaction with remove button", function() {
     });
 });
 
-describe("User Interaction with both add and remove buttons", function() {
+xdescribe("User Interaction with both add and remove buttons", function() {
     let mainPage = new MainPage();
     
     beforeEach(function(){
