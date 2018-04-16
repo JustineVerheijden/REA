@@ -15,7 +15,7 @@ describe('Property Directive', function() {
     beforeEach(inject(function($templateCache) {
         let propertyTemplate = null;
         var xhr = new XMLHttpRequest()
-        xhr.open("get", "../property.html");
+        xhr.open("get", "../dist/property.html");
         xhr.send()
         $templateCache.put("property.html", propertyTemplate);
     }));
