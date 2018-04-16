@@ -1,23 +1,20 @@
 import angular from 'angular';
+import constantsModule from './constants';
 
-const dataService = angular.module('REA.dataService',[]);
-dataService.$inject = ['$http', '$q'];
+const dataService = angular.module('REA.dataService',[constantsModule.name]);
+dataService.$inject = ['$http', '$q', 'constants'];
 dataService.service('dataService',dataServiceFunction);
 
-function dataServiceFunction($http, $q){
-    const PROPERTIES_URL = './dist/json/mock.json';
-    const RETRIEVE_ERROR = '##REA_DATA_RETRIEVE_ERROR##';
-    const ERROR_DETAIL_TO_BE_REPLACED = RETRIEVE_ERROR;
-    const DATA_RETRIEVE_ERROR = `Error retrieving all properties. (HTTP status: ${RETRIEVE_ERROR})`;
+function dataServiceFunction($http, $q, constants){
 
     let getAllProperties = ()=>{
-        return $http.get(PROPERTIES_URL)
+        return $http.get(constants.PROPERTIES_URL)
         .then((data)=>{
                 return data;
             },
             (data)=>{                    
-                let reTest = new RegExp(ERROR_DETAIL_TO_BE_REPLACED,'g');
-                return $q.reject(DATA_RETRIEVE_ERROR.replace(reTest,data.status));
+                let reTest = new RegExp(constants.ERROR_DETAIL_TO_BE_REPLACED,'g');
+                return $q.reject(constants.DATA_RETRIEVE_ERROR.replace(reTest,data.status));
                 //Use the error defined in the constants service and update it to reflect the errored status
             }
         );
