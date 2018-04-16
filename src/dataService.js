@@ -32,9 +32,23 @@ function dataServiceFunction($http, $q, constants){
         
     }
 
+    let getSavedProperties = (savedPropertiesControllerThis)=>{
+        let responseDataPromise = getAllProperties().then((data)=>{
+            savedPropertiesControllerThis.savedData = data.data.saved;
+            return;
+        },
+        (data)=>{
+            throw new Error(data);
+            // Unsure of requirements regarding what to do if an error occurs retrieving results data, need to check with users
+        });
+        return responseDataPromise;
+        
+    }
+
     return {
         getAllProperties,
-        getResultsProperties
+        getResultsProperties,
+        getSavedProperties
     };
 };
 export default dataService;
