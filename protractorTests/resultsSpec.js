@@ -41,8 +41,8 @@ describe("Results Properties - Other Results Property Displays", function() {
         expect(mainPage.resultsProperties.get(1).element(by.css(".agencyLogo")).getAttribute('src')).toMatch(mainPage.secondLogo);
     });
 
-    it("should display expected logo on second property", function() {
+    it("should display expected logo on third property", function() {
         browser.waitForAngular();
-        expect(mainPage.resultsProperties.get(1).element(by.css(".agencyLogo")).getAttribute('src')).toMatch(mainPage.thirdLogo);
+        expect(mainPage.resultsProperties.get(2).element(by.css(".agencyLogo")).getAttribute('src')).toMatch(mainPage.thirdLogo);
     });
 });

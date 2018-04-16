@@ -15,7 +15,7 @@ module.exports = function() {
     this.firstPrice = '$726,500';
     
     this.secondLogo = 'http://i4.au.reastatic.net/agencylogo/BFERIC/12/20150619122858.gif';
-    this.thirdLogo = 'http://i4.au.reastatic.net/agencylogo/BFERIC/12/20150619122858.gif';
+    this.thirdLogo = 'http://i1.au.reastatic.net/agencylogo/XCEWIN/12/20150807093203.gif';
     
     this.savedFirstImage = 'http://i2.au.reastatic.net/agencylogo/WVYSSK/2/20140701084436.gif';
     this.savedFirstBackground = 'rgba\(0, 0, 0, 1\)';
