@@ -22,7 +22,7 @@ module.exports = function() {
     this.savedFirstMainImage = 'http://i2.au.reastatic.net/640x480/5e84d96722dda3ea2a084d6935677f64872d1d760562d530c3cabfcb7bcda9c2/main.jpg';
     this.savedFirstPrice = '$526,500';
 
-    this.savedProperties = element.all(by.repeater('save in savedController.saveData'));
+    this.savedProperties = element.all(by.repeater('save in savedPropertiesController.savedData'));
     this.resultsProperties = element.all(by.repeater('result in resultsController.resultData'));
 
     this.propertyResult1 = element(by.id(this.firstResultElement));

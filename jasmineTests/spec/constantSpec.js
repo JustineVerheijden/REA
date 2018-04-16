@@ -1,8 +1,9 @@
+'use strict'
 describe('Constants service', function() {
 	let constants = {};
 	let retrieveError = '##REA_DATA_RETRIEVE_ERROR##';
 	let constantsData = { 
-		PROPERTIES_URL : './json/mock.json',
+		PROPERTIES_URL : './dist/json/mock.json',
 		PROPERTY_EXISTS_ERROR: 'Error, property can only be added once',
 		ERROR_DETAIL_TO_BE_REPLACED: retrieveError,
 		DATA_RETRIEVE_ERROR: `Error retrieving all properties. (HTTP status: ${retrieveError})`,
@@ -10,7 +11,7 @@ describe('Constants service', function() {
         SAVED_INDICATOR: 'saved'
 	}
     
-	beforeEach(module('REA'));
+	beforeEach(module('REA.constants'));
 
 	beforeEach(inject(function(_constants_) {
 		constants = _constants_;
