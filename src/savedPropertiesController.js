@@ -15,7 +15,7 @@ function SavedPropertiesController($rootScope, $scope, dataService, constants){
         vm.addSavedProperty(propertyToBeSaved);
     });
 
-    vm.addSavedProperty = function (propertyData){
+    vm.addSavedProperty = (propertyData)=>{
         let propertyToBeSaved ={};
         Object.assign(propertyToBeSaved, propertyData);
         //create complete copy of the property to be altered and potentially added to the saved properties
@@ -25,14 +25,14 @@ function SavedPropertiesController($rootScope, $scope, dataService, constants){
         vm.processProperty(propertyToBeSaved);
     }
     
-    vm.propertyExistsInSaved = function (id){
-        let exists = vm.savedData.filter(function(index){
+    vm.propertyExistsInSaved = (id)=>{
+        let exists = vm.savedData.filter((index)=>{
             return index.id === constants.SAVED_INDICATOR+id;
         });
         return exists.length!==0;
     }
     
-    vm.processProperty = function (propertyToBeSaved) {
+    vm.processProperty = (propertyToBeSaved) => {
         if (!vm.propertyExistsInSaved(propertyToBeSaved.id)){
             //don't allow property to be displayed multiple times in the 'saved' column
             vm.savedData.push(propertyToBeSaved);
