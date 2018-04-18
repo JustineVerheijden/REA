@@ -15,7 +15,7 @@ ResultsController.$inject = ['dataService'];
 
 app.controller('ResultsController',ResultsController);
 
-SavedPropertiesController.$inject = ['dataService'];
+SavedPropertiesController.$inject = ['$rootScope', '$scope', 'dataService', 'constants'];
 
 app.controller('SavedPropertiesController',SavedPropertiesController);
 

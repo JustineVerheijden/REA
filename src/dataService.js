@@ -6,7 +6,6 @@ dataService.$inject = ['$http', '$q', 'constants'];
 dataService.service('dataService',dataServiceFunction);
 
 function dataServiceFunction($http, $q, constants){
-
     let getAllProperties = ()=>{
         return $http.get(constants.PROPERTIES_URL)
         .then((data)=>{
