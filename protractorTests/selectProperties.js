@@ -1,5 +1,5 @@
 module.exports = function() {
-    this.mainURL = "http://localhost:3001";
+    this.mainURL = 'http://localhost:3001';
     this.firstSavedElement = 'saved1';
     this.secondSavedElement = 'saved2';
     this.thirdSavedElement = 'saved3';
