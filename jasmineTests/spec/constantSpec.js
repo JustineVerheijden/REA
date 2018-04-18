@@ -1,5 +1,5 @@
 'use strict'
-describe('Constants service', function() {
+describe('Constants service', ()=> {
 	let constants = {};
 	let retrieveError = '##REA_DATA_RETRIEVE_ERROR##';
 	let constantsData = { 
@@ -13,30 +13,31 @@ describe('Constants service', function() {
     
 	beforeEach(module('REA.constants'));
 
-	beforeEach(inject(function(_constants_) {
+	beforeEach(inject((_constants_)=> {
 		constants = _constants_;
 	}));
 
-	it('should have the properties URL constant set', function() {
+	it('should have the properties URL constant set', ()=> {
 		expect(angular.mock.dump(constants.PROPERTIES_URL)).toEqual(constantsData.PROPERTIES_URL);
 	});
 
-	it('should have the Property Exists Error constant set', function() {
+	it('should have the Property Exists Error constant set', ()=> {
 		expect(angular.mock.dump(constants.PROPERTY_EXISTS_ERROR)).toEqual(constantsData.PROPERTY_EXISTS_ERROR);
 	});
 
-	it('should have the Error Detail to be Replaced constant set', function() {
+	it('should have the Error Detail to be Replaced constant set', ()=> {
 		expect(angular.mock.dump(constants.ERROR_DETAIL_TO_BE_REPLACED)).toEqual(constantsData.ERROR_DETAIL_TO_BE_REPLACED);
 	});
 
-	it('should have the Retrieve Data Error constant set', function() {
+	it('should have the Retrieve Data Error constant set', ()=> {
 		expect(angular.mock.dump(constants.DATA_RETRIEVE_ERROR)).toEqual(constantsData.DATA_RETRIEVE_ERROR);
 	});
 
-	it('should have the Result Indicator constant set', function() {
+	it('should have the Result Indicator constant set', ()=> {
 		expect(angular.mock.dump(constants.RESULT_INDICATOR)).toEqual(constantsData.RESULT_INDICATOR);
 	});
-	it('should have the Saved Indicator constant set', function() {
+	
+	it('should have the Saved Indicator constant set', ()=> {
 		expect(angular.mock.dump(constants.SAVED_INDICATOR)).toEqual(constantsData.SAVED_INDICATOR);
 	});
 	
