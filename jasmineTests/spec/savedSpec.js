@@ -1,47 +1,84 @@
 'use strict'
-describe('Saved Controller', function(){
-    let $rootScope, $scope, $q, dataService, $controller;
+describe('Saved Controller', ()=>{
+    let $rootScope, $scope, $q, dataService, $controller, constants;
     let savedValue={};    
 
     beforeEach(module('REA'));
-    beforeEach(inject(function(_$rootScope_, _$q_, _dataService_, _$controller_){
+    beforeEach(inject((_$rootScope_, _$q_, _dataService_, _constants_, _$controller_)=>{
         $controller = _$controller_;
         dataService = _dataService_;
         $q = _$q_;
         $rootScope = _$rootScope_;
         $scope = _$rootScope_;
+        constants = _constants_;
     }));
-    describe('Initialise controller', function(){
-        it("should be created successfully", function() {
-            $controller = $controller('SavedPropertiesController', {$scope:$scope, dataService:dataService});
+
+    describe('Initialise controller', ()=>{
+        it('should be created successfully', ()=> {
+            $controller = $controller('SavedPropertiesController', {$rootScope, $scope, dataService, constants});
             expect($controller).toBeDefined();
         });
         
-        it("should retrieve data from data service", function(){
-            spyOn(dataService, 'getSavedProperties').and.callFake(function(){
+        it('should retrieve data from data service', ()=>{
+            spyOn(dataService, 'getSavedProperties').and.callFake(()=>{
                 var deferred = $q.defer();
                 deferred.resolve(savedValue);
                 return deferred.promise;    
             });
-            $controller = $controller('SavedPropertiesController', {$scope:$scope, dataService:dataService});
+            $controller = $controller('SavedPropertiesController', {$rootScope, $scope, dataService, constants});
             $rootScope.$apply();
             expect(dataService.getSavedProperties).toHaveBeenCalled();
         });
-        
-        xit("should display whatever data the 'savedData' variable is set to ", function(){
-            dataService.savedData='abc';
-            $controller = $controller('SavedPropertiesController', {$scope:$scope, dataService:dataService});
-            expect($controller.savedData).toBe(dataService.savedData);
+    });
+    
+    describe('Update Saved properties', ()=>{
+        it('should removed property selected', ()=>{
+            $controller = $controller('SavedPropertiesController', {$rootScope, $scope, dataService, constants});
+            $controller.savedData=[{id:1,name:'test'},{id:2,name:'test2'}];
+            $scope.removeSavedProperty(1)
+            expect($controller.savedData.length).toBe(1);
         });
     });
     
-    xdescribe('Update Saved properties', function(){
-        it("should removed property selected", function(){
-            dataService.savedData=[{id:1,name:'test'},{id:2,name:'test2'}];
-            $controller = $controller('SavedPropertiesController', {$scope:$scope, dataService:dataService});
-            $scope.removeSavedProperty(1)
-            expect($controller.saveData.length).toBe(1);
-            expect(dataService.savedData.length).toBe(1);
+    describe('Update Saved Property', ()=>{
+        it('should return true if property exists in the saved column (if it does, it can\'t be added again)', ()=>{
+            $controller = $controller('SavedPropertiesController', {$rootScope, $scope, dataService, constants});
+            $controller.savedData=[{id:'saved1',name:'test'}, {id:'saved2',name:'test2'}];
+            expect($controller.propertyExistsInSaved(1)).toBeTruthy();
+        });
+
+        it('should return false if property exists in the saved column (if it does, it can\'t be added again)', ()=>{
+            $controller = $controller('SavedPropertiesController', {$rootScope, $scope, dataService, constants});
+            $controller.savedData=[{id:1,name:'test'}, {id:2,name:'test2'}];
+            expect($controller.propertyExistsInSaved(3)).toBeFalsy();
+        });
+
+        it('should update the saved properties list with the property', ()=>{
+            let newData = {id:3,name:'test3'};
+            $controller = $controller('SavedPropertiesController', {$rootScope, $scope, dataService, constants});
+            $controller.savedData=[{id:1,name:'test'}, {id:2,name:'test2'}];
+            $controller.processProperty(newData);
+            expect($controller.savedData.length).toBe(3);
+        });
+
+        it('should not update the saved properties list with a property that already exists in the saved column, an error should be thrown', ()=>{
+            let newData = {id:1,name:'test'};
+            $controller = $controller('SavedPropertiesController', {$rootScope, $scope, dataService, constants});
+            $controller.savedData=[{id:'saved1',name:'test'}, {id:'saved2',name:'test2'}];
+            expect(()=> {
+                $controller.processProperty(newData);
+            }).toThrowError(constants.PROPERTY_EXISTS_ERROR); 
+            
+        });
+
+        it('should update the saved properties list with property, the ID being updated to remove \'result\'', ()=>{
+            let newData = {id:'result'+3,name:'test3'};
+            $controller = $controller('SavedPropertiesController', {$rootScope, $scope, dataService, constants});
+            $controller.savedData=[{id:1,name:'test'}, {id:2,name:'test2'}];
+            $controller.addSavedProperty(newData);
+            expect($controller.savedData.length).toBe(3);
+            expect($controller.savedData[2].id).toBe('3');
         });
     });
+
 });

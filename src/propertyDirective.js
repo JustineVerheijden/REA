@@ -1,30 +1,32 @@
+import angular from 'angular';
+
 class PropertyDirective {
     constructor() {
         this.restrict = 'E'
         this.templateUrl = "../dist/property.html"
         this.scope = {
-            bkgColor:'<',
-            agencyLogo:'<',
-            mainImage:'<',
-            price: '<',
+            propertyData: '<',
             showAddButton: '<',
             showRemoveButton: '<',
-            id: '='
+            id: '=',
+            removeSavedProperty: "&removeProperty" //if relevant - method that exists on Controller
         }
     }
     link(scope){
-        console.log(scope.id);
         scope.id = scope.showAddButton?'result'+scope.id:scope.id;
         scope.id = scope.showRemoveButton?'saved'+scope.id:scope.id;
-        console.log(scope.id);
         
-        scope.hoverIn = function(){
+        scope.hoverIn = ()=>{
             scope.showAddButtonToggle = scope.showAddButton?true:false;
             scope.showRemoveButtonToggle = scope.showRemoveButton?true:false;
         }
-        scope.hoverOut = function(){
+        scope.hoverOut = ()=>{
             scope.showAddButtonToggle = false;
             scope.showRemoveButtonToggle = false;
+        }
+
+        scope.addSavedProperty = ()=>{
+            scope.$root.$emit('addSavedProperty', scope.propertyData)
         }
     }
 }

@@ -8,14 +8,12 @@
         <div class='row'>
             <div ng-controller='ResultsController as resultsController' class='heading offset-md-1 col-md-4 text-center'>Results
                 <div ng-repeat='result in resultsController.resultData' class='text-left'>
-                    <property-directive bkg-color=result.agency.brandingColors.primary agency-logo=result.agency.logo
-                    main-image=result.mainImage price=result.price show-add-button='true' id=result.id></property-directive>
+                    <property-directive add-property='addSavedProperty(result)' property-data=result show-add-button='true' id=result.id></property-directive>
                 </div>
             </div>
             <div ng-controller='SavedPropertiesController as savedPropertiesController' class='heading offset-md-2 col-md-4 text-center'>Saved
                 <div ng-repeat='save in savedPropertiesController.savedData' class='text-left'>
-                    <property-directive bkg-color=save.agency.brandingColors.primary agency-logo=save.agency.logo
-                    main-image=save.mainImage price=save.price show-remove-button='true' id=save.id></property-directive>
+                    <property-directive remove-property='removeSavedProperty(id)' property-data=save show-remove-button='true' id=save.id></property-directive>
                 </div>
             </div>
         </div>
